@@ -22,8 +22,8 @@ class TestYandexAuthPage(unittest.TestCase):
         passwd.send_keys('netology')
 
         driver.find_element_by_class_name('control button2 button2_view_classic '
-                                            'button2_size_l button2_theme_action button2_width_max '
-                                            'button2_type_submit passp-form-button').click()
+                                          'button2_size_l button2_theme_action button2_width_max '
+                                          'button2_type_submit passp-form-button').click()
 
     def tearDown(self):
         self.driver.close()
@@ -31,4 +31,3 @@ class TestYandexAuthPage(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
-
