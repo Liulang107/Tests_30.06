@@ -20,6 +20,7 @@ class TestYandexAuthPage(unittest.TestCase):
         passwd = driver.find_element_by_id('passp-field-passwd')
         passwd.send_keys('netology')
         passwd.send_keys(Keys.ENTER)
+        assert "Яндекс.Паспорт" in driver.title
 
     def tearDown(self):
         self.driver.close()
