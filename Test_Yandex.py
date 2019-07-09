@@ -2,12 +2,13 @@
 import unittest
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
+# from webdriver_manager.chrome import ChromeDriverManager
 
 
 class TestYandexAuthPage(unittest.TestCase):
     def setUp(self):
-        self.driver = webdriver.Chrome('/Users/Maria/Desktop/chromedriver')
-        self.driver.implicitly_wait(10)
+        self.driver = webdriver.Chrome('/Users/Maria/.wdm/chromedriver/75.0.3770.90/mac64/chromedriver')
+        self.driver.implicitly_wait(20)
 
     def test_auth_on_Yandex(self):
         driver = self.driver
@@ -20,7 +21,7 @@ class TestYandexAuthPage(unittest.TestCase):
         passwd = driver.find_element_by_id('passp-field-passwd')
         passwd.send_keys('netology')
         passwd.send_keys(Keys.ENTER)
-        assert "Яндекс.Паспорт" in driver.title
+        assert "Авторизация" in driver.title
 
     def tearDown(self):
         self.driver.close()
