@@ -1,10 +1,12 @@
 # Задание 3. Применив selenium напишите unit-test для авторизации на Яндексе по url: https://passport.yandex.ru/auth/
 import unittest
 from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
+
 
 class TestYandexAuthPage(unittest.TestCase):
     def setUp(self):
-        self.driver = webdriver.Chrome("/Users/Maria/Desktop/chromedriver")
+        self.driver = webdriver.Chrome()
         self.driver.implicitly_wait(10)
 
     def test_auth_on_Yandex(self):
@@ -13,17 +15,11 @@ class TestYandexAuthPage(unittest.TestCase):
 
         login = driver.find_element_by_id('passp-field-login')
         login.send_keys('netologyzolotova')
-
-        driver.find_element_by_class_name('control button2 button2_view_classic '
-                                          'button2_size_l button2_theme_action button2_width_max '
-                                          'button2_type_submit passp-form-button').click()
+        login.send_keys(Keys.ENTER)
 
         passwd = driver.find_element_by_id('passp-field-passwd')
         passwd.send_keys('netology')
-
-        driver.find_element_by_class_name('control button2 button2_view_classic '
-                                          'button2_size_l button2_theme_action button2_width_max '
-                                          'button2_type_submit passp-form-button').click()
+        passwd.send_keys(Keys.ENTER)
 
     def tearDown(self):
         self.driver.close()
