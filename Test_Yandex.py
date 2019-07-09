@@ -6,7 +6,7 @@ from selenium.webdriver.common.keys import Keys
 
 class TestYandexAuthPage(unittest.TestCase):
     def setUp(self):
-        self.driver = webdriver.Chrome()
+        self.driver = webdriver.Chrome('/Users/Maria/Desktop/chromedriver')
         self.driver.implicitly_wait(10)
 
     def test_auth_on_Yandex(self):
